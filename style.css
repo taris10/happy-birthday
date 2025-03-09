@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #829ac7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.greeting-card {
+    background-color: rgb(184, 221, 238);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+.message-form {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    display: none;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.message-form.active {
+    display: block;
+    animation: fadeIn 1s forwards;
+}
+
+.lines {
+    width: 100%;
+    border-bottom: 1px solid #addcdc;
+    margin: 10px 0;
+    position: relative;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #daa520;
+    border-radius: 50%;
+    position: absolute;
+    left: -15px;
+    top: -5px;
+}
+
+.birthday-title {
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards 0.7s;
+    text-shadow: 0 0 20px #3e2723;
+}
+
+.birthday-title h1 {
+    font-size: 30px;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.birthday-title h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    margin-top: -10px;
+    color: #5e3a32;
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 320px;
+    margin: 20px auto;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 1s forwards 1s;
+}
+
+.image-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 20px 20px;
+    overflow: hidden;
+    border: 8px solid #b7cdda;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leaf-left, .leaf-right {
+    position: absolute;
+    height: 120px;
+    opacity: 0;
+}
+
+.leaf-left {
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: fadeInLeft 1s forwards 1.3s;
+}
+
+.leaf-right {
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: fadeInRight 1s forwards 1.3s;
+}
+
+.name-banner {
+    background-color: #b8dbf8;
+    padding: 10px 40px;
+    border-radius: 5px;
+    position: relative;
+    margin-top: -20px;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.5s;
+    z-index: 2;
+}
+
+.name-banner::before,
+.name-banner::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 100%;
+    top: 0;
+    background-color: #b7cdda;
+}
+
+.name-banner::before {
+    left: -10px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+}
+
+.name-banner::after {
+    right: -10px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+}
+
+.name-banner h3 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+    text-shadow: 0 0 20px #3e2723;
+}
+
+.action-button {
+    background-color: #3e2723;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-top: 30px;
+    cursor: pointer;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.7s;
+}
+
+.corner-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+
+.top-left {
+    top: 100px;
+    left: 20px;
+    transform: rotate(-10deg);
+    animation: float 3s infinite alternate;
+}
+
+.top-right {
+    top: 100px;
+    right: 20px;
+    transform: rotate(10deg);
+    animation: float 4s infinite alternate;
+}
+
+.bottom-left {
+    bottom: 100px;
+    left: 20px;
+    transform: rotate(-5deg);
+    animation: float 5s infinite alternate;
+}
+
+.bottom-right {
+    bottom: 100px;
+    right: 20px;
+    transform: rotate(5deg);
+    animation: float 3.5s infinite alternate;
+}
+
+.send-message {
+    background-color: #3e2723;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin: 20px auto 0;
+    display: block;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-10px) rotate(var(--rotation, 0deg));
+    }
+}
